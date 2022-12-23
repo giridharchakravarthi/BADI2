@@ -1,0 +1,14 @@
+---------------------------------------------
+|ZTABLE :- YGC_LFB1(MANDT,BUKRS,AKONT,FDGRV)|
+|CLASSIC BADI NAME :- VENDOR_ADD_DATA       |
+|INTERFACE IN BADI :-PRESET_VALUES_CCODE	  |
+---------------------------------------------
+PROGRAM:-
+-------------------------------------------------------------------
+  DATA WA TYPE YGC_LFB1.
+  SELECT SINGLE * FROM YGC_LFB1 INTO WA WHERE BUKRS = E_LFB1-BUKRS.
+  IF SY-SUBRC = 0.
+  E_LFB1-AKONT = WA-AKONT.
+  E_LFB1-FDGRV = WA-FDGRV.
+  ENDIF.
+--------------------------------------------------------------------
